@@ -1,0 +1,23 @@
+<div class="dotd-container">
+    <div class="slogan"> Driver of the Day </div>
+    <div *ngIf="this.driverOTD else noName" class="driver-name"> {{this.driverOTD.givenName}} {{this.driverOTD.familyName}} <img src="https://www.countryflags.io/{{this.countryCode}}/shiny/32.png"></div>
+    <ng-template #noName>
+        <div class="driver-name"> NO DATA </div>
+    </ng-template>
+    <img class="driverImage" src="{{this.image}}" alt="">
+    <div *ngIf="this.driverOTD else noData" class="statistics-container">
+        <div class="row"><i class="fas fa-crown"></i> {{this.championshipsCount}} campeonatos </div>
+        <div class="row"><i class="fas fa-trophy"></i> {{this.winsCount}} victorias </div>
+        <div class="row"><i class="fas fa-list-ol"></i> {{this.podiumsCount}} podiums </div>
+        <div class="row"><i class="fas fa-flag-checkered"></i> {{this.polesCount}} poles </div>
+    </div>
+    <ng-template #noData class="statistics-container">
+        <div class="row"><i class="fas fa-crown"></i> NULL campeonatos </div>
+        <div class="row"><i class="fas fa-trophy"></i> NULL victorias </div>
+        <div class="row"><i class="fas fa-list-ol"></i> NULL podiums </div>
+        <div class="row"><i class="fas fa-flag-checkered"></i> NULL poles </div>
+    </ng-template>
+    <div class="info">
+        <p>{{this.info}}</p>
+    </div>
+</div>
